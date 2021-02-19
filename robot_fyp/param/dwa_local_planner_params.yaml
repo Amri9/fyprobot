@@ -1,0 +1,50 @@
+DWAPlannerROS:
+
+# Robot Configuration Parameters
+  max_vel_x: 0.55  # Max:0.75 #the absolute value of the maximum speed in the x direction
+  min_vel_x: -0.25  # Min:-0.75 #The absolute value of the minimum value in the x direction. If it is negative, it can be back.
+
+  max_vel_y: 0.0  #The absolute value of the maximum speed in the y direction
+  min_vel_y: 0.0  #The absolute value of the minimum speed in the y direction.
+
+# The velocity when robot is moving in a straight line
+  max_vel_trans: 0.55  # Default:0.55  #absolute value of translation speed maximum
+  min_vel_trans: -0.25 # Default:0.1   #the absolute value of the minimum translation speed
+
+  max_vel_theta: 1.7   # Max:2.0    #The absolute value of the maximum rotation speed.
+  min_vel_theta: -1.7  # Min:-2.0   #The absolute value of the minimum rotation speed
+
+  acc_lim_x: 2.5      #absolute value of acceleration in the x direction
+  acc_lim_y: 0.0      # The absolute value of the acceleration in the y direction, which is only required for omnidirectionally moving robots.
+  acc_lim_theta: 2.0  #The absolute value of the rotational acceleration.
+
+# Goal Tolerance Parametes
+  xy_goal_tolerance: 0.10   #The distance error from the target point in the xy plane when the target point is reached.
+  yaw_goal_tolerance: 0.05  #The allowable error of the yaw angle when reaching the target point, in radians.
+  latch_xy_goal_tolerance: false   #Set to true, if the fault tolerance is reached, the robot will rotate in place, 
+                                   #even if the rotation will  run out of the fault tolerance
+
+
+# Forward Simulation Parameters
+  sim_time: 2.5           #The time to simulate the trajectory forward.
+  sim_granularity: 0.025  #the step size, the distance between the sample points on the track, and the intensity of the points on the track.
+  vx_samples: 20          #The number of sampling points in the x-direction velocity space
+  vy_samples: 0           #y direction velocity space sampling points
+  vth_samples: 40         #The number of speed space sampling points in the direction of rotation
+  controller_frequency: 10.0  #The frequency sent to the chassis to control the move command
+
+# Trajectory Scoring Parameters
+  path_distance_bias: 90.0  #Defines the weight of the controller's proximity to a given path
+  goal_distance_bias: 20.0  #defines the weight of the controller's proximity to the local target point
+  occdist_scale: 0.02       #Defines the extent to which the controller avoids obstacles.
+  forward_point_distance: 0.325
+  stop_time_buffer: 0.2     #The length of time the robot must stop early to prevent collisions.
+  scaling_speed: 0.25       #The speed at which the robot chassis is started	
+  max_scaling_factor: 0.2   #Maximum scaling parameter
+
+# Oscillation Prevention Parameters
+  oscillation_reset_dist: 0.05  #How long the robot moves to reset the oscillation mark.
+
+# Debugging
+  prune_plan: true   #Whether the robot advances to clear the track 1m away from the back.
+  publish_cost_grid: false #Whether to issue the cost grid of the planner when planning the path. If set to true, the sensor_msgs/PointCloud2 type message will be posted on the ~/cost_cloud topic.
