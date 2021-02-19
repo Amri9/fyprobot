@@ -2,10 +2,7 @@ sudo apt update && apt upgrade
 cd catkin_ws/src/robot_fyp
 1. roscore
 
-2. roslaunch robot_fyp house.launch
-   roslaunch robot_fyp empty.launch
-   roslaunch robot_fyp garage.launch
-   roslaunch robot_fyp playground.launch
+2. roslaunch robot_fyp empty.launch
    roslaunch robot_fyp test.launch
 
 3. roslaunch robot_fyp gmapping.launch        (run rviz and gmapping)
